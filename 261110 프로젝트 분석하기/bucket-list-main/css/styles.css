@@ -1,0 +1,306 @@
+/* 커스텀 스타일 (Tailwind CSS 보완용) */
+/* Tailwind 클래스보다 우선하도록 `body` 접두어로 특이도를 높임 */
+
+/* ===== 디자인 토큰 ===== */
+:root {
+    --bg-from: #eef2ff;
+    --bg-via: #f5f3ff;
+    --bg-to: #fdf2f8;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(255, 255, 255, 0.9);
+    --card-shadow: 0 8px 24px rgba(99, 102, 241, 0.08);
+    --card-shadow-hover: 0 14px 32px rgba(99, 102, 241, 0.18);
+    --primary-from: #6366f1;
+    --primary-to: #8b5cf6;
+    --radius: 1rem;
+}
+
+/* ===== 배경 그라데이션 ===== */
+body.bg-gray-50 {
+    background: linear-gradient(135deg, var(--bg-from) 0%, var(--bg-via) 50%, var(--bg-to) 100%);
+    background-attachment: fixed;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+}
+
+/* 헤더 */
+header h1 {
+    background: linear-gradient(90deg, var(--primary-from), var(--primary-to), #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+header {
+    margin-bottom: 2.5rem;
+}
+
+/* ===== 카드 공통 (통계/입력/필터/목록 항목/모달) ===== */
+body .bg-white.rounded-lg {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+}
+
+/* 섹션 카드 간격 (통계/입력/필터) */
+body .container > .bg-white.rounded-lg {
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+}
+
+/* ===== 버킷 리스트 항목 카드 ===== */
+#bucketListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-top: 1.5rem;
+}
+
+body .bucket-item {
+    position: relative;
+    padding: 1.125rem 1.25rem;
+    gap: 1rem;
+    border-left: 4px solid var(--primary-from);
+    animation: slideIn 0.3s ease-out;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body .bucket-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* 완료된 항목 카드는 초록 포인트 */
+body .bucket-item:has(.bg-green-500) {
+    border-left-color: #22c55e;
+    background: rgba(240, 253, 244, 0.85);
+}
+
+/* 체크박스 */
+.bucket-item button:first-child {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 9999px;
+}
+
+.bucket-item button:first-child:hover {
+    transform: scale(1.15);
+    border-color: var(--primary-from);
+}
+
+/* 완료된 항목 텍스트 */
+.bucket-item .line-through {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* ===== 버튼 공통 호버 효과 ===== */
+button {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* 추가/저장 (주요 버튼): 그라데이션 */
+body button.bg-blue-600 {
+    background: linear-gradient(135deg, var(--primary-from), var(--primary-to));
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+body button.bg-blue-600:hover {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.45);
+}
+
+/* 수정 / 삭제 (항목 버튼) */
+body .bucket-item button.bg-blue-100,
+body .bucket-item button.bg-red-100 {
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.6rem;
+}
+
+body .bucket-item button.bg-blue-100:hover {
+    background-color: #6366f1;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.35);
+}
+
+body .bucket-item button.bg-red-100:hover {
+    background-color: #ef4444;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.35);
+}
+
+/* ===== 필터 버튼 ===== */
+.filter-btn {
+    background-color: #eef2ff;
+    color: #6b7280;
+    border-radius: 9999px !important;
+    padding: 0.5rem 1.5rem;
+}
+
+.filter-btn:hover {
+    background-color: #e0e7ff;
+    color: #4f46e5;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary-from), var(--primary-to));
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+/* ===== 입력 필드 ===== */
+input {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+input:focus {
+    border-color: var(--primary-from);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* ===== 통계 ===== */
+#totalCount, #completedCount, #progressCount, #completionRate {
+    transition: all 0.3s ease;
+}
+
+/* ===== 애니메이션 ===== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#emptyState {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* ===== 모달 ===== */
+#editModal {
+    animation: fadeIn 0.2s ease-in;
+    backdrop-filter: blur(4px);
+}
+
+#editModal > div {
+    animation: scaleIn 0.2s ease-out;
+    padding: 1.75rem;
+}
+
+/* ===== 스크롤바 ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #818cf8;
+}
+
+/* ===== 모바일 반응형 ===== */
+@media (max-width: 640px) {
+    body .bucket-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bucket-item > div:last-child {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 8px;
+    }
+
+    .filter-btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+
+    body .container > .bg-white.rounded-lg {
+        padding: 1.25rem;
+    }
+}
+
+/* ===== 다크 모드 ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --card-bg: rgba(55, 65, 81, 0.85);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        --card-shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    body.bg-gray-50 {
+        background: linear-gradient(135deg, #111827 0%, #1e1b4b 50%, #312e81 100%);
+        background-attachment: fixed;
+    }
+
+    .bg-white {
+        background-color: #374151;
+    }
+
+    body .bucket-item:has(.bg-green-500) {
+        background: rgba(20, 83, 45, 0.5);
+    }
+
+    .text-gray-800 {
+        color: #f3f4f6;
+    }
+
+    .text-gray-600 {
+        color: #d1d5db;
+    }
+
+    .border-gray-300 {
+        border-color: #4b5563;
+    }
+
+    .filter-btn {
+        background-color: #4b5563;
+        color: #d1d5db;
+    }
+
+    .filter-btn:hover {
+        background-color: #6b7280;
+        color: #fff;
+    }
+}

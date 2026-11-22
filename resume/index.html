@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동 | 프론트엔드 개발자</title>
+    <meta name="description" content="프론트엔드 개발자 홍길동의 웹 이력서입니다.">
+    <meta property="og:title" content="홍길동 | 프론트엔드 개발자">
+    <meta property="og:description" content="프론트엔드 개발자 홍길동의 웹 이력서입니다.">
+    <meta property="og:type" content="website">
+
+    <!-- Pretendard 웹폰트 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- 네비게이션 -->
+    <header class="fixed top-0 inset-x-0 z-40 bg-white/90 backdrop-blur border-b border-gray-200">
+        <nav class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between" aria-label="주요 메뉴">
+            <a href="#hero" class="font-bold text-lg text-indigo-600">홍길동</a>
+
+            <!-- 데스크톱 메뉴 -->
+            <ul class="hidden md:flex gap-6 text-sm font-medium">
+                <li><a class="nav-link" href="#about">소개</a></li>
+                <li><a class="nav-link" href="#skills">기술</a></li>
+                <li><a class="nav-link" href="#experience">경력</a></li>
+                <li><a class="nav-link" href="#projects">프로젝트</a></li>
+                <li><a class="nav-link" href="#education">학력</a></li>
+                <li><a class="nav-link" href="#social">SNS</a></li>
+                <li><a class="nav-link" href="#contact">연락처</a></li>
+            </ul>
+
+            <!-- 모바일 햄버거 버튼 -->
+            <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                    aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileMenu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- 모바일 메뉴 -->
+        <ul id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white px-4 py-2 text-sm font-medium">
+            <li><a class="nav-link block py-3" href="#about">소개</a></li>
+            <li><a class="nav-link block py-3" href="#skills">기술</a></li>
+            <li><a class="nav-link block py-3" href="#experience">경력</a></li>
+            <li><a class="nav-link block py-3" href="#projects">프로젝트</a></li>
+            <li><a class="nav-link block py-3" href="#education">학력</a></li>
+            <li><a class="nav-link block py-3" href="#social">SNS</a></li>
+            <li><a class="nav-link block py-3" href="#contact">연락처</a></li>
+        </ul>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4">
+
+        <!-- Hero -->
+        <section id="hero" class="pt-32 pb-20 text-center">
+            <p class="text-indigo-600 font-semibold mb-3">안녕하세요 👋</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">프론트엔드 개발자 홍길동입니다</h1>
+            <p class="text-gray-600 text-lg mb-8">사용자가 편하게 쓰는 웹을 만듭니다.</p>
+            <a href="#contact"
+               class="inline-block px-8 py-3 bg-indigo-600 text-white rounded-lg font-medium shadow-md
+                      hover:bg-indigo-700 hover:-translate-y-0.5 hover:shadow-lg transition-all">
+                연락하기
+            </a>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="py-16">
+            <h2 class="section-title">소개</h2>
+            <p class="text-gray-700 leading-relaxed">
+                3년차 프론트엔드 개발자입니다. HTML, CSS, JavaScript를 기반으로 읽기 쉽고 유지보수하기 좋은 코드를 쓰려고 합니다.
+                디자이너, 백엔드 개발자와 소통하며 함께 만드는 과정을 좋아합니다.
+                새로운 기술은 작은 프로젝트로 먼저 써 보고 팀에 도입할지 판단합니다.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="py-16">
+            <h2 class="section-title">기술 스택</h2>
+            <ul class="flex flex-wrap gap-3">
+                <li class="badge">HTML</li>
+                <li class="badge">CSS</li>
+                <li class="badge">JavaScript</li>
+                <li class="badge">Tailwind CSS</li>
+                <li class="badge">Git</li>
+            </ul>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-16">
+            <h2 class="section-title">경력</h2>
+            <div class="space-y-4">
+                <article class="card">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="font-bold text-lg">(주)샘플테크 · 프론트엔드 개발자</h3>
+                        <p class="text-sm text-gray-500">2023.03 – 현재</p>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>사내 관리자 페이지 UI 개발 및 유지보수</li>
+                        <li>공통 컴포넌트 정리로 화면 개발 시간 단축</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="font-bold text-lg">샘플웹스튜디오 · 웹 퍼블리셔</h3>
+                        <p class="text-sm text-gray-500">2021.07 – 2023.02</p>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>반응형 기업 홈페이지 20여 개 퍼블리싱</li>
+                        <li>웹 접근성 기준에 맞춘 마크업 작업</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="py-16">
+            <h2 class="section-title">프로젝트</h2>
+            <div class="grid gap-4 md:grid-cols-3">
+                <article class="card flex flex-col">
+                    <h3 class="font-bold text-lg mb-2">버킷 리스트</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">목표를 추가, 수정, 삭제하고 달성률을 보여주는 앱입니다.</p>
+                    <p class="text-xs text-indigo-600 mb-3">JavaScript · Tailwind CSS</p>
+                    <a href="#" class="text-sm font-medium text-indigo-600 hover:underline" aria-label="버킷 리스트 프로젝트 보기">보러 가기 →</a>
+                </article>
+                <article class="card flex flex-col">
+                    <h3 class="font-bold text-lg mb-2">오늘의 운세</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">카드를 뒤집어 하루 운세를 보는 한 화면짜리 페이지입니다.</p>
+                    <p class="text-xs text-indigo-600 mb-3">HTML · CSS · JavaScript</p>
+                    <a href="#" class="text-sm font-medium text-indigo-600 hover:underline" aria-label="오늘의 운세 프로젝트 보기">보러 가기 →</a>
+                </article>
+                <article class="card flex flex-col">
+                    <h3 class="font-bold text-lg mb-2">웹 이력서</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">지금 보고 계신 반응형 단일 페이지 이력서입니다.</p>
+                    <p class="text-xs text-indigo-600 mb-3">HTML · Tailwind CSS</p>
+                    <a href="#" class="text-sm font-medium text-indigo-600 hover:underline" aria-label="웹 이력서 프로젝트 보기">보러 가기 →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="py-16">
+            <h2 class="section-title">학력</h2>
+            <article class="card">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                    <h3 class="font-bold text-lg">샘플대학교 · 컴퓨터공학과 (학사)</h3>
+                    <p class="text-sm text-gray-500">2017.03 – 2021.02</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- SNS -->
+        <section id="social" class="py-16">
+            <h2 class="section-title">SNS</h2>
+            <ul class="flex flex-wrap gap-3">
+                <li><a class="social-link github" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub 열기">GitHub</a></li>
+                <li><a class="social-link youtube" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube 열기">YouTube</a></li>
+                <li><a class="social-link instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram 열기">Instagram</a></li>
+                <li><a class="social-link blog" href="https://velog.io/" target="_blank" rel="noopener noreferrer" aria-label="블로그 열기">블로그</a></li>
+            </ul>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-16">
+            <h2 class="section-title">연락처</h2>
+            <ul class="space-y-2 text-gray-700">
+                <li>이메일: <a class="text-indigo-600 hover:underline" href="mailto:hong@example.com">hong@example.com</a></li>
+                <li>GitHub: <a class="text-indigo-600 hover:underline" href="https://github.com/" target="_blank" rel="noopener noreferrer">github.com/hong</a></li>
+                <li>LinkedIn: <a class="text-indigo-600 hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">linkedin.com/in/hong</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="text-center text-sm text-gray-400 py-8 border-t border-gray-200 mt-8">
+        © 2026 홍길동. 샘플 이력서입니다.
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
